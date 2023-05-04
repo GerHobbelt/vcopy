@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Scratch + R&D
+tmp/
+
