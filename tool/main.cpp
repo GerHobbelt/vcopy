@@ -1,9 +1,12 @@
 #include <iostream>
-#include <eternal_timestamp/lib1-pub-header.h>
-#include <eternal_timestamp/eternal_timestamp.hpp>
+#include <vcopy/vcopy.h>
 
-int main(int, char **) 
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      vcopy_main(cnt, arr)
+#endif
+
+int main(int argc, const char **argv) 
 {
-  std::cout << "1 + 2 = " << eternaltimestamp::sum(1, 2) << '\n';
   return 0;
 }

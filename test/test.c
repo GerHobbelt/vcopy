@@ -1,5 +1,5 @@
 
-#include <eternal_timestamp.h>
+#include <vcopy/vcopy.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +7,7 @@
 
 
 #if defined(BUILD_MONOLITHIC)
-#define main(cnt, arr)      eternalty_test_c_main(cnt, arr)
+#define main(cnt, arr)      vcopy_test_c_main(cnt, arr)
 #endif
 
 int main(int argc, const char** argv)
