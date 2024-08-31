@@ -10,6 +10,7 @@
 #define main(cnt, arr)      vcopy_test_cpp_main(cnt, arr)
 #endif
 
+extern "C"
 int main(int argc, const char **argv)
 {
 	fprintf(stderr, "Eternal Timestamp Test (C++ version)\n\n");
