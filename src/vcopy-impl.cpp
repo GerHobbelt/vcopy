@@ -132,13 +132,13 @@ namespace vcopy
 		 --rename
 																							the various commands we support. `copy` is obvious; `move` comes with the notion that the source tree is
 																							*first* copied over to the destination (unless the vcopy tool discovers the file can be *moved* at
-																							*file sytem API level*, e.g. when source and destination trees exist in the same filesystem/drive.
+																							*file system API level*, e.g. when source and destination trees exist in the same filesystem/drive.
 																							`move` will only delete the source files ones those have all been successfully produced at the destination
 																							site.
 
-																							`test` is a bit like `make -n`: all the prepwork is done, but rather than performing the actual copy/move/delete,
+																							`test` is a bit like `make -n`: all the prep-work is done, but rather than performing the actual copy/move/delete,
 																							the tool will print/report the planned action for review and nothing will change. `report` is an alias
-																							of `test` which can write the planned actions in a useful format to the given reportfile, e.g. for further
+																							of `test` which can write the planned actions in a useful format to the given report file, e.g. for further
 																							processing that action list by external tools.
 
 																							`diff` is like `report` but only reports the actions required due to observed differences between source and
@@ -156,7 +156,7 @@ namespace vcopy
 		                                          the source file (as part of the 'move' operation) or other action which might otherwise loose you your original
 																							content.
 
-																							As a corrolary, `verify` does not perform a content-hash comparison but a 1:1 all-bytes file content
+																							As a corollary, `verify` does not perform a content-hash comparison but a 1:1 all-bytes file content
 																							comparison instead. Handy when you feel a wee bit paranoid about your target medium, e.g. an USB disk or
 																							file storage that sits on the other side of an Internet connection (though the latter might be better served
 																							using `rsync` or similar tooling instead).
@@ -165,9 +165,10 @@ namespace vcopy
 
 
 		General note: while path-carrying options can be 'reset' using the `clear-` prefix, the same can be done for the other command line options,
-		restting them to their built-in default values.
+		resetting them to their built-in default values.
 		Meanwhile you can also *invert* / *countermand* the boolean command line switches by using the `no-` or 'dont-' prefixes, e.g. `no-verify` will shut down
 		the maximum effort comparing file content at both source and destination, trusting the copying process instead.
-
 	*/
+
+
 }
