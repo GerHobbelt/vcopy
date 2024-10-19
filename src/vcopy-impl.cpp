@@ -12,7 +12,7 @@ namespace vcopy
 
 		 --conf <configuration-file>            : loads a configuration file, which serves as an alternative method to feed the tool its set of parameters.
 
-		                                          Note: the tool will always look in the current active directory for a 'default' configuarion file.
+		                                          Note: the tool will always look in the current active directory for a 'default' configuration file.
 																							The order of precedence is:
 																							+ configuration file in currently active directory (a.k.a. present working directory, pwd, cwd)
 																							+ configuration file(s) specified at the command line
@@ -24,8 +24,8 @@ namespace vcopy
 
 																							When you don't want this behaviour, i.e. wish to start from scratch, you can do so by specifying the
 																							option prefixed with `clear-`, e.g. `--clear-skip`, which will remove all 'skip' paths collected until
-																							the moment the `--clear-skip` option is observed. As a corrolary, this can also be used to clear out
-																							settings from prewritten command scripts/aliases: `--skip A --clear-skip --skip B` will discard 'A'
+																							the moment the `--clear-skip` option is observed. As a corollary, this can also be used to clear out
+																							settings from pre-written command scripts/aliases: `--skip A --clear-skip --skip B` will discard 'A'
 																							as that path occurred *before* the `clear-skip` command, resulting in only the 'B' path being preserved.
 																							`--skip A --skip B` will accumulate, i.e. preserve the set {A, B}.
 
@@ -55,19 +55,19 @@ namespace vcopy
 		                                          ditto as `--ignore` but only applies to the source side of things.
 		 --ignore-destination <files>;<directories>
 		                                          ditto as `--ignore` but only applies to the destination side of things.
-     --source <directories>                   one or more 'base directories' serving as source trees for the opration.
-		 --match-depth <n>                        the maximum depth the fiflesystem scan will traverse eash source directory. This number can adjusted
+     --source <directories>                   one or more 'base directories' serving as source trees for the operation.
+		 --match-depth <n>                        the maximum depth the filesystem scan will traverse each source directory. This number can adjusted
 		                                          for specific subtrees by using the `match` command for those:
      --match {<depth>:} <directories>         when any of these paths are matched, the max traversal depth is adjusted/reset to the given depth.
 		                                          When no explicit depth number is specified, the actual traversal depth limit is simply reset to the
 																							`match-depth` number: this behaviour makes it easy to scan a large directory tree at a relatively shallow
 																							depth (which should be fast) and then match a few subdirectories of interest in there, which will be
-																							automattically scanned to a deeper level.
+																							automatically scanned to a deeper level.
 																							Indeed, when, while scanning such a subdirectory tree, any other `match` pattern matches, the traversal
 																							depth limit is reset again for that sub-sub-tree!
 
 																							When the inverse is desired, i.e. a relatively deep general scan, but only a shallow traversal of
-																							specific sub-directories, then one could specify a larger `match-deph` number to start with, and specify
+																							specific sub-directories, then one could specify a larger `match-depth` number to start with, and specify
 																							a much lower depth level for those `match`-ed sub-directories: the 'depth limit' will be set to the
 																							specified `depth` number, even when the current depth limit happened to be higher.
      --destination <directory>                       
@@ -83,7 +83,7 @@ namespace vcopy
 																							overwrite / update the files found at the destination. Optionally a set of paths/file-patterns may be
 																							specified to have this behaviour only apply to the given set. When no paths/patterns are specified, the
 																							given rule applies to all.
-																							This allows us to specify a diversitfied copy/write behaviour in a single execution/run, e.g.
+																							This allows us to specify a diversified copy/write behaviour in a single execution/run, e.g.
 																							`--update --overwrite F` will instruct us to *update* all files/directories at the destination, except
 																							for the files which match the F pattern/name: those will be forcibly overwritten, even when the
 																							destination copy appears to be up to date already. Use this when you need to use certain files as
@@ -93,7 +93,7 @@ namespace vcopy
 																							by updating only the necessary parts of the target file a la `rsync` et al, minimizing write activity.
 																							Also note that these options will direct vcopy to replace any target file it finds wanting by overwriting
 																							its content.
-																							`forced-overwite` does not do any of this: the destination file is re-created from scratch (via
+																							`forced-overwrite` does not do any of this: the destination file is re-created from scratch (via
 																							a dedicated create-rename-delete-rename action sequence) which is meant to break any hardlink or softlink
 																							the previous destination file might have been part of.
 
@@ -102,7 +102,7 @@ namespace vcopy
 
 		 --copy-attributes {<spec>:] [<paths>]    copy the given file access timestamps and attributes to the destination.         
 
-		 --datebase <dbfile>                      keep a databvase of the file paths, content hashes, timestamps, etc. around. This can be used speed
+		 --database <dbfile>                      keep a database of the file paths, content hashes, timestamps, etc. around. This can be used speed
 		                                          up subsequent runs as any source file matching a database entry will not be content-hashed for update
 																							comparison: instead, the data is taken from the matching database record.
 
@@ -115,7 +115,7 @@ namespace vcopy
      --ignore-database [<paths>]              ignore the database performance shortcut for these files / directories. When no paths patterns are specified,
 		                                          the command is applied to all files involved.
 
-	   --delete-obsolete-targets                delete any files found at the destination site which are not presnt in the source tree. This is a useful
+	   --delete-obsolete-targets                delete any files found at the destination site which are not present in the source tree. This is a useful
 		                                          command option when mirroring large source repositories which see frequent significant change in files
 																							appearing and disappearing from the collective: use this option to ensure no 'old cruft' lingers unnoticed.
 

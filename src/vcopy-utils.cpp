@@ -16,6 +16,8 @@
 namespace vcopy
 {
 
+#if 0
+
 void dirscan_dirent()
 {
 		/* Pass the pattern to filter function */
@@ -356,6 +358,8 @@ void dirscan_dirent()
 
 		return EXIT_SUCCESS;
 	}
+
+#endif
 
 #endif
 

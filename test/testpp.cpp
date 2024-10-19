@@ -13,7 +13,7 @@
 extern "C"
 int main(int argc, const char **argv)
 {
-	fprintf(stderr, "Eternal Timestamp Test (C++ version)\n\n");
+	fprintf(stderr, "VCopy Test (C++ version)\n\n");
 
 	return 0;
 }
